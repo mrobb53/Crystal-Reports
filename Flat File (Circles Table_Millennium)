@@ -2,23 +2,23 @@
 
 whileprintingrecords;
  
-global stringvar sRemarks:=sRemarks & if next({CIRCLES_FULL.CIRID})={CIRCLES_FULL.CIRID}
+global stringvar sCircles:=sCircles & if next({CIRCLES_FULL.CIRID})={CIRCLES_FULL.CIRID}
 or previous({CIRCLES_FULL.CIRID})={CIRCLES_FULL.CIRID}
      then {CIRCLES_FULL.CIRCIRCNM} & '; '
           else '';
  
-sRemarks;
+sCircles;
 
 --Formula 2 - Goes in Group Header
 
 Whileprintingrecords;
-global stringvar sRemarks:=''
+global stringvar sCircles:=''
 
 
 --Formula 3 - Goes in Details Section
 
 whileprintingrecords;
-global stringvar sRemarks;
+global stringvar sCircles;
 
 
 --Formula 4 - Goes in Section Expert, Suppress (No Drill Down) Formula field
