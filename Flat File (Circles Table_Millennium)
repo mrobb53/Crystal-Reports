@@ -1,0 +1,36 @@
+--Formula 1 - Goes in Details Section
+
+whileprintingrecords;
+ 
+global stringvar sRemarks:=sRemarks & if next({CIRCLES_FULL.CIRID})={CIRCLES_FULL.CIRID}
+or previous({CIRCLES_FULL.CIRID})={CIRCLES_FULL.CIRID}
+     then {CIRCLES_FULL.CIRCIRCNM} & '; '
+          else '';
+ 
+sRemarks;
+
+--Formula 2 - Goes in Group Header
+
+Whileprintingrecords;
+global stringvar sRemarks:=''
+
+
+--Formula 3 - Goes in Details Section
+
+whileprintingrecords;
+global stringvar sRemarks;
+
+
+--Formula 4 - Goes in Section Expert, Suppress (No Drill Down) Formula field
+
+(not onlastrecord
+and
+{CIRCLES_FULL.CIRID}=next({CIRCLES_FULL.CIRID}))
+
+--Formula 5 - Does not need to be on the sheet
+
+if trim({@formula3}) = ' ' then true
+
+--Formula 6 - will be used to show final listagg values wanted.
+
+if {@use} = True then {CIRCLES_FULL.CIRCIRCNM} else {@formula3}
